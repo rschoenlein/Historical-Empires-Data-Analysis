@@ -21,10 +21,8 @@ class Scraper:
 
 
         empire_lengths = {}
-        length_elems = soup.find_all('span', attrs={'class': 'value-bullet'})
+        length_elems = [a for a in soup.find_all('span', attrs={'class': 'value-bullet'}) if 'Span:' in a.get_text()]
         name_elems = soup.find_all('span', attrs={'class': 'title-bullet'})
-
-
 
         print(length_elems)
 
