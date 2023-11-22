@@ -1,3 +1,4 @@
+import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -24,7 +25,7 @@ class Scraper:
 
         for n, l in zip(name_elems, length_elems):
             n_text = n.get_text()
-            l_text = l.get_text()
+            l_text = re.sub("[^0-9]", "", l.get_text())
             empire_lengths[n_text] = l_text
 
         return empire_lengths

@@ -6,10 +6,6 @@ class Populater:
         self.dict = dict
 
     def populate_spreadsheet(self):
-        print(self.dict.keys())
-        print(self.dict.values())
-
-        print(type(self.dict))
         with open('empire_lengths.csv', 'w+') as output:
             writer = csv.writer(output)
             for key, value in self.dict.items():
